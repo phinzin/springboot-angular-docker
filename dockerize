@@ -1,2 +1,6 @@
 docker build -t phinzin/springboot-angular-docker .
 docker run -p 8080:8080 -d phinzin/springboot-angular-docker
+
+heroku container:login
+heroku container:push web --app springboot-angular-docker
+heroku container:release web --app springboot-angular-docker
