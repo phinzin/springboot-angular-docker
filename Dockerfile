@@ -7,6 +7,10 @@ COPY web .
 RUN --mount=type=cache,target=/root/.m2  mvn clean install -DskipTests
 
 FROM openjdk:8-jre
-ADD api/target/*.jar shop.jar
+RUN ls -l
+WORKDIR /app
+RUN ls -l
+COPY api/target .
+ADD *.jar shop.jar
 ENV port=8080
 ENTRYPOINT ["java","-Dserver.port=$PORT $JAVA_OPTS -jar","shop.jar"]
