@@ -20,5 +20,5 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v5.0.0
       with:
-        tags: phinzin/springboot-angular-docker:$(date +%s)
+        tags: phinzin/springboot-angular-docker:latest
         
